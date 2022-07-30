@@ -33,7 +33,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title: 'project-ready-react-boilerplate',
+            title: 'fcc-drum-machine',
             inject: true,
             template: path.resolve(__dirname, './src/index.html'),
         }),
