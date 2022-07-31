@@ -3,21 +3,21 @@ import './style.scss';
 
 const Buttons = (props) => {
     return (
-        <div id="buttonsContainer">
+        <div id="display">
             <div>
-                <button>Q</button>
-                <button>W</button>
-                <button>E</button>
+                <button className="drum-pad">Q</button>
+                <button className="drum-pad">W</button>
+                <button className="drum-pad">E</button>
             </div>
             <div>
-                <button>A</button>
-                <button>S</button>
-                <button>D</button>
+                <button className="drum-pad">A</button>
+                <button className="drum-pad">S</button>
+                <button className="drum-pad">D</button>
             </div>
             <div>
-                <button>Z</button>
-                <button>X</button>
-                <button>C</button>
+                <button className="drum-pad">Z</button>
+                <button className="drum-pad">X</button>
+                <button className="drum-pad">C</button>
             </div>
         </div>
     );
