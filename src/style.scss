@@ -5,7 +5,9 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    background-color: aqua;
+    background-color: #6b0f1a;
+    background-image: linear-gradient(315deg, #6b0f1a 0%, #b91372 74%);
+
     padding: 20px;
     width: auto;
     height: auto;
@@ -15,13 +17,14 @@
     width: 60px;
     height: 60px;
     margin: 2px;
+    background-color: #3f0d12;
+    background-image: linear-gradient(315deg, #3f0d12 0%, #a71d31 74%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
     font-weight: bolder;
     font-size: large;
     border-radius: 10px;
     &:active {
-        background-color: yellow;
-        color: aqua;
+        color: red;
     }
     &:focus {
         outline: none;

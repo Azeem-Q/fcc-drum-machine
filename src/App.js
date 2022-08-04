@@ -5,19 +5,19 @@ const Buttons = (props) => {
     return (
         <div id="display">
             <div>
-                <button className="drum-pad">Q</button>
-                <button className="drum-pad">W</button>
-                <button className="drum-pad">E</button>
+                <button id="Q" className="drum-pad">Q</button>
+                <button id="W" className="drum-pad">W</button>
+                <button id="E" className="drum-pad">E</button>
             </div>
             <div>
-                <button className="drum-pad">A</button>
-                <button className="drum-pad">S</button>
-                <button className="drum-pad">D</button>
+                <button id="A" className="drum-pad">A</button>
+                <button id="S" className="drum-pad">S</button>
+                <button id="D" className="drum-pad">D</button>
             </div>
             <div>
-                <button className="drum-pad">Z</button>
-                <button className="drum-pad">X</button>
-                <button className="drum-pad">C</button>
+                <button id="Z" className="drum-pad">Z</button>
+                <button id="X" className="drum-pad">X</button>
+                <button id="C" className="drum-pad">C</button>
             </div>
         </div>
     );
