@@ -5,7 +5,12 @@ const Buttons = (props) => {
     return (
         <div id="display">
             <div>
-                <button id="QA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="QA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="Q"
                         className="clip"
@@ -13,7 +18,12 @@ const Buttons = (props) => {
                     ></audio>
                     Q
                 </button>
-                <button id="WA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="WA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="W"
                         className="clip"
@@ -21,7 +31,12 @@ const Buttons = (props) => {
                     ></audio>
                     W
                 </button>
-                <button id="EA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="EA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="E"
                         className="clip"
@@ -31,7 +46,12 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button id="AA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="AA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="A"
                         className="clip"
@@ -39,7 +59,12 @@ const Buttons = (props) => {
                     ></audio>
                     A
                 </button>
-                <button id="SA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="SA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="S"
                         className="clip"
@@ -47,7 +72,12 @@ const Buttons = (props) => {
                     ></audio>
                     S
                 </button>
-                <button id="DA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="DA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="D"
                         className="clip"
@@ -57,7 +87,12 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button id="ZA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="ZA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="Z"
                         className="clip"
@@ -65,7 +100,12 @@ const Buttons = (props) => {
                     ></audio>
                     Z
                 </button>
-                <button id="XA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="XA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="X"
                         className="clip"
@@ -73,7 +113,12 @@ const Buttons = (props) => {
                     ></audio>
                     X
                 </button>
-                <button id="CA" className="drum-pad" onClick={props.onClick}>
+                <button
+                    id="CA"
+                    className="drum-pad"
+                    onClick={props.onClick}
+                    onKeyDown={props.onKeyDown}
+                >
                     <audio
                         id="C"
                         className="clip"
@@ -90,6 +135,7 @@ class App extends React.Component {
         super(props);
         this.state = {};
         this.handleClick = this.handleClick.bind(this);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
     handleClick(e) {
@@ -97,10 +143,48 @@ class App extends React.Component {
         audio.play();
     }
 
+    handleKeyDown(e) {
+        switch (e.keyCode) {
+            case 81:
+                e.target.children[0].play();
+                break;
+            case 87:
+                e.target.children[0].play();
+                break;
+            case 69:
+                e.target.children[0].play();
+                break;
+            case 65:
+                e.target.children[0].play();
+                break;
+            case 83:
+                e.target.children[0].play();
+                break;
+            case 68:
+                e.target.children[0].play();
+                break;
+            case 90:
+                e.target.children[0].play();
+                break;
+            case 88:
+                e.target.children[0].play();
+                break;
+            case 67:
+                e.target.children[0].play();
+                break;
+            default:
+                alert('Please press either Q, W, E, A, S, D,Z, X, or C');
+                break;
+        }
+    }
+
     render() {
         return (
             <div id="drum-machine">
-                <Buttons onClick={this.handleClick} />
+                <Buttons
+                    onClick={this.handleClick}
+                    onKeyDown={this.handleKeyDown}
+                />
             </div>
         );
     }
