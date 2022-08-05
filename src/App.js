@@ -5,11 +5,7 @@ const Buttons = (props) => {
     return (
         <div id="display">
             <div>
-                <button
-                    id="QA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('Q').play()}
-                >
+                <button id="QA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="Q"
                         className="clip"
@@ -17,11 +13,7 @@ const Buttons = (props) => {
                     ></audio>
                     Q
                 </button>
-                <button
-                    id="WA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('W').play()}
-                >
+                <button id="WA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="W"
                         className="clip"
@@ -29,11 +21,7 @@ const Buttons = (props) => {
                     ></audio>
                     W
                 </button>
-                <button
-                    id="EA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('E').play()}
-                >
+                <button id="EA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="E"
                         className="clip"
@@ -43,11 +31,7 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button
-                    id="AA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('A').play()}
-                >
+                <button id="AA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="A"
                         className="clip"
@@ -55,11 +39,7 @@ const Buttons = (props) => {
                     ></audio>
                     A
                 </button>
-                <button
-                    id="SA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('S').play()}
-                >
+                <button id="SA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="S"
                         className="clip"
@@ -67,11 +47,7 @@ const Buttons = (props) => {
                     ></audio>
                     S
                 </button>
-                <button
-                    id="DA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('D').play()}
-                >
+                <button id="DA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="D"
                         className="clip"
@@ -81,11 +57,7 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button
-                    id="ZA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('Z').play()}
-                >
+                <button id="ZA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="Z"
                         className="clip"
@@ -93,11 +65,7 @@ const Buttons = (props) => {
                     ></audio>
                     Z
                 </button>
-                <button
-                    id="XA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('X').play()}
-                >
+                <button id="XA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="X"
                         className="clip"
@@ -105,11 +73,7 @@ const Buttons = (props) => {
                     ></audio>
                     X
                 </button>
-                <button
-                    id="CA"
-                    className="drum-pad"
-                    onClick={() => document.getElementById('C').play()}
-                >
+                <button id="CA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="C"
                         className="clip"
@@ -129,14 +93,14 @@ class App extends React.Component {
     }
 
     handleClick(e) {
-        const audio = document.getElementById('Q');
+        const audio = e.target.children[0];
         audio.play();
     }
 
     render() {
         return (
             <div id="drum-machine">
-                <Buttons />
+                <Buttons onClick={this.handleClick} />
             </div>
         );
     }
