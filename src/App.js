@@ -8,6 +8,7 @@ const Buttons = (props) => {
                 <button
                     id="QA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -21,6 +22,7 @@ const Buttons = (props) => {
                 <button
                     id="WA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -34,6 +36,7 @@ const Buttons = (props) => {
                 <button
                     id="EA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -49,6 +52,7 @@ const Buttons = (props) => {
                 <button
                     id="AA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -62,6 +66,7 @@ const Buttons = (props) => {
                 <button
                     id="SA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -75,6 +80,7 @@ const Buttons = (props) => {
                 <button
                     id="DA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -90,6 +96,7 @@ const Buttons = (props) => {
                 <button
                     id="ZA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -103,6 +110,7 @@ const Buttons = (props) => {
                 <button
                     id="XA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -116,6 +124,7 @@ const Buttons = (props) => {
                 <button
                     id="CA"
                     className="drum-pad"
+                    tabIndex="0"
                     onClick={props.onClick}
                     onKeyDown={props.onKeyDown}
                 >
@@ -133,7 +142,9 @@ const Buttons = (props) => {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            keyAlert: '',
+        };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
@@ -147,33 +158,62 @@ class App extends React.Component {
         switch (e.keyCode) {
             case 81:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 87:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 69:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 65:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 83:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 68:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 90:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 88:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             case 67:
                 e.target.children[0].play();
+                this.setState = {
+                    keyAlert: '',
+                };
                 break;
             default:
-                alert('Please press either Q, W, E, A, S, D,Z, X, or C');
+                this.setState = {
+                    keyAlert: 'Please press either Q, W, E, A, S, D,Z, X, or C',
+                };
                 break;
         }
     }
@@ -181,6 +221,7 @@ class App extends React.Component {
     render() {
         return (
             <div id="drum-machine">
+                <h1>{this.state.keyAlertm}</h1>
                 <Buttons
                     onClick={this.handleClick}
                     onKeyDown={this.handleKeyDown}
