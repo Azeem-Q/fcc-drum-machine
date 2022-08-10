@@ -5,13 +5,7 @@ const Buttons = (props) => {
     return (
         <div id="display">
             <div>
-                <button
-                    id="QA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="QA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="Q"
                         className="clip"
@@ -19,13 +13,7 @@ const Buttons = (props) => {
                     ></audio>
                     Q
                 </button>
-                <button
-                    id="WA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="WA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="W"
                         className="clip"
@@ -33,13 +21,7 @@ const Buttons = (props) => {
                     ></audio>
                     W
                 </button>
-                <button
-                    id="EA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="EA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="E"
                         className="clip"
@@ -49,13 +31,7 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button
-                    id="AA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="AA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="A"
                         className="clip"
@@ -63,13 +39,7 @@ const Buttons = (props) => {
                     ></audio>
                     A
                 </button>
-                <button
-                    id="SA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="SA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="S"
                         className="clip"
@@ -77,13 +47,7 @@ const Buttons = (props) => {
                     ></audio>
                     S
                 </button>
-                <button
-                    id="DA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="DA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="D"
                         className="clip"
@@ -93,13 +57,7 @@ const Buttons = (props) => {
                 </button>
             </div>
             <div>
-                <button
-                    id="ZA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="ZA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="Z"
                         className="clip"
@@ -107,13 +65,7 @@ const Buttons = (props) => {
                     ></audio>
                     Z
                 </button>
-                <button
-                    id="XA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="XA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="X"
                         className="clip"
@@ -121,13 +73,7 @@ const Buttons = (props) => {
                     ></audio>
                     X
                 </button>
-                <button
-                    id="CA"
-                    className="drum-pad"
-                    tabIndex="0"
-                    onClick={props.onClick}
-                    onKeyDown={props.onKeyDown}
-                >
+                <button id="CA" className="drum-pad" onClick={props.onClick}>
                     <audio
                         id="C"
                         className="clip"
@@ -142,11 +88,20 @@ const Buttons = (props) => {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            keyAlert: '',
-        };
+        this.state = {};
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
+        this.handleKeyUp = this.handleKeyUp.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('keydown', this.handleKeyDown);
+        window.addEventListener('keyup', this.handleKeyUp);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('keydown', this.handleKeyDown);
+        window.removeEventListener('keyup', this.handleKeyUp);
     }
 
     handleClick(e) {
@@ -155,77 +110,36 @@ class App extends React.Component {
     }
 
     handleKeyDown(e) {
-        switch (e.keyCode) {
-            case 81:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 87:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 69:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 65:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 83:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 68:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 90:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 88:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            case 67:
-                e.target.children[0].play();
-                this.setState = {
-                    keyAlert: '',
-                };
-                break;
-            default:
-                this.setState = {
-                    keyAlert: 'Please press either Q, W, E, A, S, D,Z, X, or C',
-                };
-                break;
+        if (
+            e.keyCode === 81 ||
+            e.keyCode === 87 ||
+            e.keyCode === 69 ||
+            e.keyCode === 65 ||
+            e.keyCode === 83 ||
+            e.keyCode === 68 ||
+            e.keyCode === 90 ||
+            e.keyCode === 88 ||
+            e.keyCode === 67
+        ) {
+            document
+                .getElementById(e.key.toUpperCase()).parentNode
+                .classList.add('active-DP');
+            document.getElementById(e.key.toUpperCase()).play();
+        } else {
+            window.alert('Please press either Q, W, E, A, S, D,Z, X, or C');
         }
+    }
+
+    handleKeyUp(e) {
+        document
+            .getElementById(e.key.toUpperCase()).parentNode
+            .classList.remove('active-DP');
     }
 
     render() {
         return (
             <div id="drum-machine">
-                <h1>{this.state.keyAlertm}</h1>
-                <Buttons
-                    onClick={this.handleClick}
-                    onKeyDown={this.handleKeyDown}
-                />
+                <Buttons onClick={this.handleClick} />
             </div>
         );
     }
