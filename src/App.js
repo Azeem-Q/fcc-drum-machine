@@ -81,6 +81,7 @@ const Buttons = (props) => {
                     ></audio>
                     C
                 </button>
+                <h1>{props.sound}</h1>
             </div>
         </div>
     );
@@ -90,6 +91,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             keyError: '',
+            sound: '',
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -109,6 +111,9 @@ class App extends React.Component {
     handleClick(e) {
         const audio = e.target.children[0];
         audio.play();
+        this.setState({
+            sound: e.target.id,
+        });
     }
 
     handleKeyDown(e) {
@@ -129,10 +134,13 @@ class App extends React.Component {
             document.getElementById(e.key.toUpperCase()).play();
             this.setState({
                 keyError: '',
+                sound: document.getElementById(e.key.toUpperCase()).parentNode
+                    .id,
             });
         } else {
             this.setState({
                 keyError: 'Please press either Q, W, E, A, S, D,Z, X, or C',
+                sound: '',
             });
         }
     }
@@ -147,7 +155,7 @@ class App extends React.Component {
         return (
             <div id="drum-machine">
                 <h1>{this.state.keyError}</h1>
-                <Buttons onClick={this.handleClick} />
+                <Buttons onClick={this.handleClick} sound={this.state.sound} />
             </div>
         );
     }
