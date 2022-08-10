@@ -88,7 +88,9 @@ const Buttons = (props) => {
 class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            keyError: '',
+        };
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handleKeyUp = this.handleKeyUp.bind(this);
@@ -122,23 +124,29 @@ class App extends React.Component {
             e.keyCode === 67
         ) {
             document
-                .getElementById(e.key.toUpperCase()).parentNode
-                .classList.add('active-DP');
+                .getElementById(e.key.toUpperCase())
+                .parentNode.classList.add('active-DP');
             document.getElementById(e.key.toUpperCase()).play();
+            this.setState({
+                keyError: '',
+            });
         } else {
-            window.alert('Please press either Q, W, E, A, S, D,Z, X, or C');
+            this.setState({
+                keyError: 'Please press either Q, W, E, A, S, D,Z, X, or C',
+            });
         }
     }
 
     handleKeyUp(e) {
         document
-            .getElementById(e.key.toUpperCase()).parentNode
-            .classList.remove('active-DP');
+            .getElementById(e.key.toUpperCase())
+            .parentNode.classList.remove('active-DP');
     }
 
     render() {
         return (
             <div id="drum-machine">
+                <h1>{this.state.keyError}</h1>
                 <Buttons onClick={this.handleClick} />
             </div>
         );
